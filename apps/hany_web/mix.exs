@@ -61,7 +61,7 @@ defmodule HanyWeb.MixProject do
     [
       setup: ["deps.get"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "release.setup": ["esbuild default --minify", "phx.digest"]
     ]
   end
 end

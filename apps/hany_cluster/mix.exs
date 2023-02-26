@@ -11,7 +11,8 @@ defmodule HanyCluster.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -26,6 +27,13 @@ defmodule HanyCluster.MixProject do
     [
       {:jason, "~> 1.3"},
       {:castore, "~> 0.1.17"}
+    ]
+  end
+
+  defp aliases() do
+    [
+      setup: ["deps.get"],
+      "release.setup": []
     ]
   end
 end
