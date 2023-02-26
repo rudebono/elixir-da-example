@@ -29,4 +29,29 @@ config :logger, :console,
 
 config :phoenix, :json_library, Jason
 
+config :mime, :types, %{
+  # Add mime type to upload notebooks with `Phoenix.LiveView.Upload`
+  "text/plain" => ["livemd"]
+}
+
+config :livebook,
+  app_service_name: nil,
+  app_service_url: nil,
+  authentication_mode: :token,
+  feature_flags: [],
+  force_ssl_host: nil,
+  learn_notebooks: [],
+  plugs: [],
+  shutdown_callback: nil,
+  storage: Livebook.Storage.Ets,
+  update_instructions_url: nil,
+  within_iframe: false,
+  allowed_uri_schemes: [],
+  iframe_port: 4002
+
+config :livebook, LivebookWeb.Endpoint,
+  http: [ip: {0, 0, 0, 0, 0, 0, 0, 0}, port: 4001],
+  pubsub_server: Livebook.PubSub,
+  check_origin: false
+
 import_config "#{config_env()}.exs"

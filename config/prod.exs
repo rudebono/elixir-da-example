@@ -51,3 +51,8 @@ config :hany_web, HanyWeb.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :livebook, LivebookWeb.Endpoint,
+  url: [scheme: "https", host: "livebook.rudebono.dev", port: 443, path: "/"],
+  live_view: [signing_salt: "NPnU+O35gVkRslDCyEDtAcDpZ2swCzOf"],
+  server: true

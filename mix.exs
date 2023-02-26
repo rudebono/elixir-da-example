@@ -13,7 +13,9 @@ defmodule Hany.Umbrella.MixProject do
   end
 
   defp deps() do
-    []
+    [
+      {:livebook, "~> 0.8.1"}
+    ]
   end
 
   defp aliases() do
@@ -39,6 +41,15 @@ defmodule Hany.Umbrella.MixProject do
           hany: :load,
           hany_cluster: :permanent,
           hany_web: :permanent
+        ]
+      ],
+      hany_livebook: [
+        include_executables_for: [:unix],
+        applications: [
+          livebook: :permanent,
+          hany: :load,
+          hany_cluster: :permanent,
+          hany_web: :load
         ]
       ]
     ]
