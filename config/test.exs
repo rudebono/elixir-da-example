@@ -13,6 +13,8 @@ config :hany, Hany.Repo.Local,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+config :hany_cluster, strategy: HanyCluster.Strategy.Epmd
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :hany_web, HanyWeb.Endpoint,

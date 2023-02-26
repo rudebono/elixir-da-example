@@ -1,5 +1,7 @@
 import Config
 
+config :hany_cluster, strategy: HanyCluster.Strategy.Gce
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
