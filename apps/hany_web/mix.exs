@@ -37,6 +37,8 @@ defmodule HanyWeb.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:hany, in_umbrella: true, runtime: false},
+      {:hany_cluster, in_umbrella: true, runtime: true},
       {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
       {:phoenix_html, "~> 3.0"},
@@ -47,7 +49,6 @@ defmodule HanyWeb.MixProject do
       {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:hany, in_umbrella: true},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"}
     ]

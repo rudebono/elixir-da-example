@@ -36,6 +36,7 @@ defmodule Hany.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:hany_cluster, in_umbrella: true, runtime: true},
       {:phoenix_pubsub, "~> 2.0"},
       {:ecto_sql, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
