@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-config :hany, Hany.Repo,
+config :hany, Hany.Repo.Local,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",

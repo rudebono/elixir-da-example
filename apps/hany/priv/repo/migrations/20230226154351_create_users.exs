@@ -1,4 +1,4 @@
-defmodule Hany.Repo.Migrations.CreateUsers do
+defmodule Hany.Repo.Local.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change() do

@@ -18,7 +18,7 @@ defmodule Hany.DataCase do
 
   using do
     quote do
-      alias Hany.Repo
+      alias Hany.Repo.Local
 
       import Ecto
       import Ecto.Changeset
@@ -36,7 +36,7 @@ defmodule Hany.DataCase do
   Sets up the sandbox based on the test tags.
   """
   def setup_sandbox(tags) do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Hany.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Hany.Repo.Local, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
   end
 
