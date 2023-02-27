@@ -27,7 +27,8 @@ defmodule HanyMl.MixProject do
     [
       {:hany_cluster, in_umbrella: true, runtime: true},
       {:bumblebee, "~> 0.1.2"},
-      {:exla, ">= 0.0.0"}
+      {:exla, ">= 0.0.0"},
+      {:nx, "~> 0.4.1"}
     ]
   end
 

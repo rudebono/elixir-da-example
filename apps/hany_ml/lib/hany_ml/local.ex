@@ -14,6 +14,7 @@ defmodule HanyMl.Local do
 
   @impl true
   def handle_call({:run, image}, _from, serving) do
+    image = image.data |> Nx.from_binary(:u8) |> Nx.reshape({image.height, image.width, 3})
     {:reply, Nx.Serving.run(serving, image), serving}
   end
 

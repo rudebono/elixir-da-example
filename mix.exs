@@ -15,8 +15,6 @@ defmodule Hany.Umbrella.MixProject do
   defp deps() do
     [
       {:livebook, "~> 0.8.1"},
-      {:nx, "~> 0.4.1"},
-      {:exla, "~> 0.4.1"},
       {:kino, "~> 0.8.0"}
     ]
   end
@@ -65,8 +63,6 @@ defmodule Hany.Umbrella.MixProject do
         include_executables_for: [:unix],
         applications: [
           livebook: :permanent,
-          nx: :permanent,
-          exla: :permanent,
           kino: :permanent,
           hany: :load,
           hany_cluster: :permanent,
