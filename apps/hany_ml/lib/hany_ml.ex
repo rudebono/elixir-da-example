@@ -1,18 +1,11 @@
 defmodule HanyMl do
-  @moduledoc """
-  Documentation for `HanyMl`.
-  """
+  alias HanyCluster.Rpc
 
-  @doc """
-  Hello world.
+  def run(image) do
+    __MODULE__.__exec__(:run, [image])
+  end
 
-  ## Examples
-
-      iex> HanyMl.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def __exec__(func, args) do
+    Rpc.call(__MODULE__.Local, func, args)
   end
 end

@@ -3,7 +3,12 @@ ARG _MIX_ENV
 ARG _RELEASE_NAME
 WORKDIR /src
 COPY . .
-# Setup SSH
+RUN DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
+    && apt-get -y install --no-install-recommends \
+    curl \
+    ca-certificates \
+    build-essential
 RUN mix local.rebar --force
 RUN mix local.hex --force
 RUN mix deps.get

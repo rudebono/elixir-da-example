@@ -47,4 +47,6 @@ config :livebook, LivebookWeb.Endpoint,
   pubsub_server: Livebook.PubSub,
   live_view: [signing_salt: "XzNU9OtT"]
 
+config :nx, default_backend: EXLA.Backend
+
 import_config "#{config_env()}.exs"

@@ -31,16 +31,31 @@ defmodule Hany.Umbrella.MixProject do
       hany: [
         include_executables_for: [:unix],
         applications: [
+          livebook: :load,
           hany: :permanent,
-          hany_cluster: :permanent
+          hany_cluster: :permanent,
+          hany_ml: :load,
+          hany_web: :load
         ]
       ],
       hany_web: [
         include_executables_for: [:unix],
         applications: [
+          livebook: :load,
           hany: :load,
           hany_cluster: :permanent,
+          hany_ml: :load,
           hany_web: :permanent
+        ]
+      ],
+      hany_ml: [
+        include_executables_for: [:unix],
+        applications: [
+          livebook: :load,
+          hany: :load,
+          hany_cluster: :permanent,
+          hany_ml: :permanent,
+          hany_web: :load
         ]
       ],
       hany_livebook: [
@@ -49,6 +64,7 @@ defmodule Hany.Umbrella.MixProject do
           livebook: :permanent,
           hany: :load,
           hany_cluster: :permanent,
+          hany_ml: :load,
           hany_web: :load
         ]
       ]
