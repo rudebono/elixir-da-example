@@ -4,9 +4,7 @@ config :hany, ecto_repos: [Hany.Repo.Local]
 
 config :hany, Hany.Repo.Local, priv: "priv/repo"
 
-config :hany_web,
-  ecto_repos: [Hany.Repo.Local],
-  generators: [context_app: :hany]
+config :hany_web, ecto_repos: [Hany.Repo.Local], generators: [context_app: :hany]
 
 config :hany_web, HanyWeb.Endpoint,
   url: [host: "localhost"],
@@ -23,16 +21,11 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+config :logger, :console, format: "$time $metadata[$level] $message\n", metadata: [:request_id]
 
 config :phoenix, :json_library, Jason
 
-config :mime, :types, %{
-  # Add mime type to upload notebooks with `Phoenix.LiveView.Upload`
-  "text/plain" => ["livemd"]
-}
+config :mime, :types, %{"text/plain" => ["livemd"]}
 
 config :livebook,
   app_service_name: nil,
@@ -47,11 +40,11 @@ config :livebook,
   update_instructions_url: nil,
   within_iframe: false,
   allowed_uri_schemes: [],
-  iframe_port: 4002
+  iframe_port: 4003
 
 config :livebook, LivebookWeb.Endpoint,
-  http: [ip: {0, 0, 0, 0, 0, 0, 0, 0}, port: 4001],
+  url: [host: "localhost"],
   pubsub_server: Livebook.PubSub,
-  check_origin: false
+  live_view: [signing_salt: "XzNU9OtT"]
 
 import_config "#{config_env()}.exs"
